@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Grid Test</title>
+	<script src="/node_modules/jquery/dist/jquery.js"></script>
+	<script src="/node_modules/angular/angular.js"></script>
+
+	<script src="/lib/spiral.app.js"></script>
+	<script src="/lib/spiral.directive.js"></script>
+	<script src="/lib/spiral-grid.service.js"></script>
+
+	<script src="app.js"></script>
+
+	<style type="text/css">
+		spiral {
+			display: block;
+		}
+
+		spiral .body {
+			height: 600px;
+			overflow-x: hidden;
+			overflow-y: auto;
+			position: relative;
+			border: 1px solid #616161;
+		}
+
+		spiral .col-box-0::after {
+			display: table;
+			clear: both;
+			content: "";
+		}
+
+		spiral .row {
+			border-bottom: 1px solid #333;
+		}
+
+		spiral .col-box {
+			position: relative;
+			box-sizing: border-box;
+			background: #fff;
+		}
+
+		spiral .col-box-even {
+			background: #f1f1f1;
+		}
+
+		spiral .col {
+			float: left;
+			width: 100%;
+			padding: 6px;
+			box-sizing: border-box;
+			position: relative;
+			left: 100% !important;
+		}
+
+		spiral .col:first-child {
+			border-left: 0;
+		}
+
+		spiral .col img {
+			height: 128px;
+			width: 128px;
+		}
+
+		spiral .col input[type="checkbox"] {
+			margin: 0;
+		}
+
+		spiral .col-3 {
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body ng-app="app" ng-controller="MainCtrl">
+	<spiral id="mainSpiral" fill-in-bottom="readyForMore()" bucket-size="25">
+		<spiral-header>
+			Main Spiral Header
+			<a href="javascript:;">+ Add Item</a>
+		</spiral-header>
+		<spiral-sticky>
+			Sticky 1
+		</spiral-sticky>
+		<spiral-sticky>
+			Sticky 2
+		</spiral-sticky>
+		<spiral-grid>
+			<spiral-col width="26px">
+				<input type="checkbox" ng-checked="::dataItem.checked" ng-click="selected(dataItem)">
+			</spiral-col>
+			<spiral-col width="25%">
+				<span>{{::dataItem.displayName}}</span>
+			</spiral-col>
+			<spiral-col width="25%">{{::dataItem.email}}</spiral-col>
+			<spiral-col>{{::dataItem.desc}}</spiral-col>
+			<spiral-col width="70px">
+				<a href="javascript:;" ng-click="remove(dataItem)">Remove</a>
+			</spiral-col>
+		</spiral-grid>
+	</spiral>
+
+	<button type="button" ng-click="addMore()">Add More</button>
+	<button type="button" ng-click="mainSpiral.reset()">Reset</button>
+</body>
+</html>

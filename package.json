@@ -1,0 +1,21 @@
+{
+  "name": "ng-spiral",
+  "version": "0.0.1",
+  "description": "Infinite scroll directive that supports both directions and variable height rows.",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server .",
+    "generate": "node ./example/util/generate_data"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/markgardner/ng-spiral.git"
+  },
+  "author": "Mark Gardner",
+  "license": "MIT",
+  "devDependencies": {
+    "angular": "^1.5.5",
+    "jquery": "^2.2.4",
+    "lite-server": "^2.2.0"
+  }
+}
