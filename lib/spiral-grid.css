@@ -1,0 +1,65 @@
+spiral {
+	display: block;
+}
+
+spiral .s-header {
+	border: 1px solid #EDEEEF;
+	border-bottom: 0;
+}
+
+spiral .s-body {
+	height: 600px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: relative;
+	border: 1px solid #EDEEEF;
+}
+
+spiral .s-col-box-0::after {
+	display: table;
+	clear: both;
+	content: "";
+}
+
+spiral .s-row {
+	border-bottom: 1px solid #EDEEEF;
+}
+
+spiral .s-col-box {
+	position: relative;
+	box-sizing: border-box;
+	border-right: 1px solid #EDEEEF;
+	margin-right: -1px;
+}
+
+spiral .s-col-box-0 {
+	border-right: 0;
+	margin-right: 0;
+}
+
+spiral .s-col {
+	float: left;
+	width: 100%;
+	padding: 6px;
+	box-sizing: border-box;
+	position: relative;
+	left: 100% !important;
+}
+
+spiral .s-col:first-child {
+	border-left: 0;
+}
+
+spiral .s-col img {
+	height: 128px;
+	width: 128px;
+}
+
+spiral .s-col input[type="checkbox"] {
+	margin: 0;
+}
+
+spiral .s-col-3 {
+	text-overflow: ellipsis;
+	overflow: hidden;
+}

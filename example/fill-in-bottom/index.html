@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Grid Test</title>
+	<script src="/node_modules/jquery/dist/jquery.js"></script>
+	<script src="/node_modules/angular/angular.js"></script>
+
+	<script src="/lib/spiral.app.js"></script>
+	<script src="/lib/spiral.directive.js"></script>
+	<script src="/lib/spiral-grid.service.js"></script>
+
+	<script src="app.js"></script>
+
+	<link rel="Stylesheet" href="/lib/spiral-grid.css">
+</head>
+<body ng-app="app" ng-controller="MainCtrl">
+	<spiral id="mainSpiral" fill-in-bottom="readyForMore()" bucket-size="25">
+		<spiral-header>
+			<spiral-grid data-header="true">
+				<spiral-col width="26px">
+					<input type="checkbox" ng-click="toggleSelectAll()">
+				</spiral-col>
+				<spiral-col width="25%">Name</spiral-col>
+				<spiral-col width="25%">Email</spiral-col>
+				<spiral-col>Description</spiral-col>
+				<spiral-col width="70px"></spiral-col>
+			</spiral-grid>
+		</spiral-header>
+		<spiral-sticky class="notification">
+			This is a sample dataset
+		</spiral-sticky>
+		<spiral-grid>
+			<spiral-col width="26px">
+				<input type="checkbox" ng-checked="::dataItem.checked" ng-click="selected(dataItem)">
+			</spiral-col>
+			<spiral-col width="25%">{{::dataItem.displayName}}</spiral-col>
+			<spiral-col width="25%">{{::dataItem.email}}</spiral-col>
+			<spiral-col>{{::dataItem.desc}}</spiral-col>
+			<spiral-col width="70px"><a href="javascript:;" ng-click="remove(dataItem)">Remove</a></spiral-col>
+		</spiral-grid>
+	</spiral>
+
+	<button type="button" ng-click="addMore()">Add More</button>
+	<button type="button" ng-click="mainSpiral.reset()">Reset</button>
+</body>
+</html>
