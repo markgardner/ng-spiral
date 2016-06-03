@@ -14,12 +14,13 @@
 	<link rel="Stylesheet" href="/lib/spiral-grid.css">
 </head>
 <body ng-app="app" ng-controller="MainCtrl">
-	<spiral id="mainSpiral" fill-in-bottom="readyForMore()" bucket-size="25">
+	<spiral id="mainSpiral" fill-in-bottom="addMoreToBottom()" bucket-size="25">
 		<spiral-header>
 			<spiral-grid data-header="true">
 				<spiral-col width="26px">
 					<input type="checkbox" ng-click="toggleSelectAll()">
 				</spiral-col>
+				<spiral-col width="70px">Id</spiral-col>
 				<spiral-col width="25%">Name</spiral-col>
 				<spiral-col width="25%">Email</spiral-col>
 				<spiral-col>Description</spiral-col>
@@ -33,6 +34,7 @@
 			<spiral-col width="26px">
 				<input type="checkbox" ng-checked="::dataItem.checked" ng-click="selected(dataItem)">
 			</spiral-col>
+			<spiral-col width="70px">{{::dataItem.id}}</spiral-col>
 			<spiral-col width="25%">{{::dataItem.displayName}}</spiral-col>
 			<spiral-col width="25%">{{::dataItem.email}}</spiral-col>
 			<spiral-col>{{::dataItem.desc}}</spiral-col>
@@ -40,7 +42,8 @@
 		</spiral-grid>
 	</spiral>
 
-	<button type="button" ng-click="addMore()">Add More</button>
-	<button type="button" ng-click="mainSpiral.reset()">Reset</button>
+	<button type="button" ng-click="addMoreToBottom()">Add More To Bottom</button>
+	<button type="button" ng-click="addMoreToTop()">Add More To Top</button>
+	<button type="button" ng-click="reset()">Reset</button>
 </body>
 </html>

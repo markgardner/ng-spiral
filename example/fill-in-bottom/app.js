@@ -38,15 +38,27 @@ angular.module('app', ['spiral'])
 			item.checked = !item.checked;
 		};
 
-		$scope.addMore = function() {
-			this.readyForMore();
-		};
-
-		$scope.readyForMore = function() {
-			console.log('readyForMore');
+		$scope.addMoreToBottom = function() {
+			console.log('addMoreToBottom');
 
 			if(data.length) {
 				$scope.mainSpiral.push(data.splice(0, 35));
+			}
+		};
+
+		$scope.addMoreToTop = function() {
+			console.log('addMoreToTop');
+
+			if(data.length) {
+				$scope.mainSpiral.unshift(data.splice(0, 35));
+			}
+		};
+
+		$scope.reset = function() {
+			console.log('reset');
+
+			if(data.length) {
+				$scope.mainSpiral.reset(data.splice(0, 35));
 			}
 		}
 
