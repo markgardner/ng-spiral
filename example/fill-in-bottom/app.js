@@ -50,7 +50,7 @@ angular.module('app', ['spiral'])
 			console.log('addMoreToTop');
 
 			if(data.length) {
-				$scope.mainSpiral.unshift(data.splice(0, 35));
+				$scope.mainSpiral.unshift(data.splice(-35, 35));
 			}
 		};
 
