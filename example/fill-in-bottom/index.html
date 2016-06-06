@@ -12,6 +12,11 @@
 	<script src="app.js"></script>
 
 	<link rel="Stylesheet" href="/lib/spiral-grid.css">
+	<style>
+	.text-center {
+		text-align: center;
+	}
+	</style>
 </head>
 <body ng-app="app" ng-controller="MainCtrl">
 	<spiral id="mainSpiral" fill-in-bottom="addMoreToBottom()" bucket-size="25">
@@ -20,7 +25,7 @@
 				<spiral-col width="26px">
 					<input type="checkbox" ng-click="toggleSelectAll()">
 				</spiral-col>
-				<spiral-col width="70px">Id</spiral-col>
+				<spiral-col width="70px" class="text-center">Id</spiral-col>
 				<spiral-col width="25%">Name</spiral-col>
 				<spiral-col width="25%">Email</spiral-col>
 				<spiral-col>Description</spiral-col>
@@ -34,11 +39,11 @@
 			<spiral-col width="26px">
 				<input type="checkbox" ng-checked="::dataItem.checked" ng-click="selected(dataItem)">
 			</spiral-col>
-			<spiral-col width="70px">{{::dataItem.id}}</spiral-col>
+			<spiral-col width="70px" class="text-center">{{::dataItem.id}}</spiral-col>
 			<spiral-col width="25%">{{::dataItem.displayName}}</spiral-col>
 			<spiral-col width="25%">{{::dataItem.email}}</spiral-col>
 			<spiral-col>{{::dataItem.desc}}</spiral-col>
-			<spiral-col width="70px"><a href="javascript:;" ng-click="remove(dataItem)">Remove</a></spiral-col>
+			<spiral-col width="70px" class="text-center"><a href="javascript:;" ng-click="remove(dataItem)">Remove</a></spiral-col>
 		</spiral-grid>
 	</spiral>
 
