@@ -10,7 +10,7 @@ spiral .s-header {
 spiral .s-body {
 	height: 600px;
 	overflow-x: hidden;
-	overflow-y: auto;
+	overflow-y: scroll;
 	position: relative;
 	border: 1px solid #EDEEEF;
 }
